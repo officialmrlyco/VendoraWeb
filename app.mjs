@@ -1,4 +1,5 @@
-import {RELEASES_URL,officialRelease} from './public-model.mjs';
+// Match the HTML asset revision so a cached old module cannot reintroduce public price reads.
+import {RELEASES_URL,officialRelease} from './public-model.mjs?v=20261007';
 const el = (id) => document.getElementById(id);
 async function json(url) { const response=await fetch(url,{signal:AbortSignal.timeout(8000)}); if(!response.ok)throw new Error('Information is unavailable.'); return response.json(); }
 // A release failure keeps a useful support/release link, never a guessed or debug APK.
