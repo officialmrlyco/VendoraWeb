@@ -34,5 +34,6 @@ test('public pages keep prices private and preserve the requested structure and 
   assert.match(policy,/payer phone details[\s\S]*recipient/);
   assert.match(policy,/server-only records[\s\S]*eTop production adapter is currently disabled/);
   assert.match(policy,/Firebase\/Google[\s\S]*Cloudflare[\s\S]*Safaricom[\s\S]*Daraja/);
-  assert.match(legacy,/stylesheet" href="\.\/styles\.css"[\s\S]*location\.replace\('\/policy'\)/);
+  // Accept a deployment revision while requiring the legacy page to retain its stylesheet and redirect.
+  assert.match(legacy,/stylesheet" href="\.\/styles\.css(?:\?v=\d+)?"[\s\S]*location\.replace\('\/policy'\)/);
 });
