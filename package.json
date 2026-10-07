@@ -1,0 +1,1 @@
+{"name":"vendora-public-site","private":true,"type":"module","scripts":{"test":"node --test public-model.test.mjs"}}
