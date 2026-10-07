@@ -12,7 +12,8 @@ export function firestoreValue(value) {
 export function documentData(document) { return firestoreValue({mapValue:{fields:document?.fields || {}}}); }
 export function validPlans(data) {
   if (!Array.isArray(data?.plans)) return [];
-  return data.plans.slice(0,50).filter(p => typeof p.label === 'string' && p.label.trim() && Number.isFinite(p.amount) && p.amount > 0 && ['RUNS','TIME'].includes(p.type)).map(p => ({label:p.label.slice(0,120),amount:p.amount,type:p.type,runs:Math.max(0,Number(p.runs)||0),duration:Math.max(0,Number(p.duration ?? p.durationHours)||0)}));
+  // The live catalog contains a legacy lower-case time plan; normalize its type.
+  return data.plans.slice(0,50).filter(p => typeof p.label === 'string' && p.label.trim() && Number.isFinite(p.amount) && p.amount > 0 && ['RUNS','TIME'].includes(String(p.type).toUpperCase())).map(p => ({label:p.label.slice(0,120),amount:p.amount,type:String(p.type).toUpperCase(),runs:Math.max(0,Number(p.runs)||0),duration:Math.max(0,Number(p.duration ?? p.durationHours)||0)}));
 }
 export function validSubscription(data) {
   if (!Number.isSafeInteger(data?.price) || data.price < 1 || !Number.isInteger(data?.limit) || data.limit < 1 || typeof data.active !== 'boolean') return null;
