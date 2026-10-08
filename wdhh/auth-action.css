@@ -1,14 +1,15 @@
-/* The action page uses the public site's dark surface and Vendora blue accent. */
-.auth-page{min-height:100vh;background:radial-gradient(ellipse at 50% 5%,#17336b55,transparent 48%),var(--bg);display:grid;place-items:center;padding:28px 18px}
+/* Define account-page colors locally: the marketing site's light theme must
+   never make security headings, password text or recovery guidance unreadable. */
+.auth-page{--bg:#080a10;--text:#edf3ff;--muted:#a9b7ce;--line:#2d3b55;color:var(--text);min-height:100vh;background:radial-gradient(ellipse at 50% 5%,#17336b55,transparent 48%),var(--bg);display:grid;place-items:center;padding:28px 18px}
 .auth-shell{width:min(100%,520px)}
-.auth-brand{display:flex;align-items:center;justify-content:center;gap:11px;margin:0 auto 28px;font-weight:750;font-size:22px;letter-spacing:-.6px}
+.auth-brand{display:flex;align-items:center;justify-content:center;gap:11px;margin:0 auto 28px;font-weight:750;font-size:22px;letter-spacing:-.6px;color:var(--text);text-decoration:none}
 .auth-card{padding:clamp(24px,6vw,42px);background:linear-gradient(155deg,#121a2a,#10141e 58%);border:1px solid #2d3b55;border-radius:24px;box-shadow:0 28px 90px #0007}
 .auth-eyebrow{display:flex;align-items:center;gap:9px;color:#8fb3ff;font-size:10px;font-weight:750;letter-spacing:1.7px;margin:0 0 26px}
 .auth-status{text-align:center}
 .auth-spinner{display:inline-block;width:28px;height:28px;border:3px solid #34435d;border-top-color:#6a9dff;border-radius:50%;animation:auth-spin .8s linear infinite}
 .auth-status[data-state=success] .auth-spinner,.auth-status[data-state=error] .auth-spinner{display:none}
 .auth-status[data-state=ready] .auth-spinner{display:none}
-.auth-status h1{font-size:clamp(29px,7vw,38px);letter-spacing:-1.5px;line-height:1.15;margin:17px 0 12px}
+.auth-status h1{color:var(--text);font-size:clamp(29px,7vw,38px);letter-spacing:-1.5px;line-height:1.15;margin:17px 0 12px}
 .auth-status p{max-width:390px;margin:0 auto;color:var(--muted);font-size:14px;line-height:1.7}
 .auth-status[data-state=success] h1:before{content:'✓';display:grid;place-items:center;width:50px;height:50px;margin:0 auto 18px;border-radius:50%;background:#143b2e;color:#74e2a6;font-size:27px;letter-spacing:0}
 .auth-status[data-state=error] h1:before{content:'!';display:grid;place-items:center;width:50px;height:50px;margin:0 auto 18px;border-radius:50%;background:#412526;color:#ffaaa5;font-size:27px;letter-spacing:0}
@@ -22,15 +23,16 @@
 .auth-submit{width:100%;min-height:48px}
 .auth-submit:disabled{opacity:.65;cursor:wait}
 .auth-help{margin-top:25px;padding-top:23px;border-top:1px solid var(--line)}
-.auth-help h2{font-size:17px;letter-spacing:-.3px;margin:0 0 13px}
+.auth-help h2{color:var(--text);font-size:17px;letter-spacing:-.3px;margin:0 0 13px}
 .auth-help ol{padding-left:20px;margin:0;color:#c0c8d6;font-size:12px;line-height:1.8}
 .auth-help li{padding-left:3px;margin:5px 0}
-.auth-help .quiet{margin:18px 0 0;font-size:11px}
+/* Help copy shares the dark page's readable muted color, not global legal copy. */
+.auth-help .quiet{margin:18px 0 0;font-size:11px;color:var(--muted)}
 .auth-help .quiet a{color:#9fc2ff;text-decoration:underline;text-underline-offset:3px}
 .auth-actions{display:flex;justify-content:space-between;align-items:center;gap:18px;margin-top:27px}
 .auth-actions .text-link{font-size:12px;color:#b9c8df}
 .auth-actions .plain-button{font-size:12px}
-.auth-footnote{margin:19px 4px 0;text-align:center;color:#77849a;font-size:10px;line-height:1.6}
+.auth-footnote{margin:19px 4px 0;text-align:center;color:var(--muted);font-size:10px;line-height:1.6}
 @keyframes auth-spin{to{transform:rotate(360deg)}}
 /* Keep the form, recovery guidance and actions comfortable on narrow screens. */
 @media(max-width:420px){.auth-page{padding:20px 14px}.auth-card{border-radius:19px}.auth-actions{align-items:flex-start;flex-direction:column}.auth-actions .text-link{align-self:flex-end}}
