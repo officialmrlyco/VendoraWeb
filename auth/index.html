@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- /auth/ serves the same validated handler as /wdhh/ without redirecting one-time codes. -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#080a10">
+  <meta name="referrer" content="no-referrer">
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="icon" href="../assets/favicon.png" type="image/png">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="/wdhh/auth-action.css">
+  <title>Vendora account security</title>
+</head>
+<body class="auth-page">
+  <!-- This focused page handles Firebase actions without showing private account data. -->
+  <main class="auth-shell">
+    <!-- The account-action page uses the same approved symbol and browser icon. -->
+    <a class="auth-brand" href="../"><img src="../assets/vendora-symbol.png" width="40" height="40" alt=""><span>Vendora</span></a>
+    <section class="auth-card" aria-labelledby="action-title">
+      <p class="auth-eyebrow"><span class="blue-dot" aria-hidden="true"></span> ACCOUNT SECURITY</p>
+      <div id="action-status" class="auth-status" role="status" aria-live="polite" aria-busy="true">
+        <span class="auth-spinner" aria-hidden="true"></span>
+        <h1 id="action-title">Checking your link</h1>
+        <p id="action-message">Please keep this page open while we verify the request.</p>
+      </div>
+      <div id="reset-form" class="auth-form" hidden>
+        <p id="reset-account" class="auth-account"></p>
+        <form id="password-form" novalidate>
+          <label for="new-password">New password</label>
+          <input id="new-password" name="new-password" type="password" autocomplete="new-password" minlength="6" maxlength="20" required>
+          <label for="confirm-password">Confirm new password</label>
+          <input id="confirm-password" name="confirm-password" type="password" autocomplete="new-password" minlength="6" maxlength="20" required>
+          <p class="auth-hint">Use 6–20 characters with an uppercase letter, a lowercase letter and a number.</p>
+          <button id="submit-password" class="button auth-submit" type="submit">Update password</button>
+        </form>
+      </div>
+      <div id="auth-help" class="auth-help" hidden>
+        <h2 id="help-title">Continue in Vendora</h2>
+        <ol id="help-steps"></ol>
+        <p class="quiet">If you did not request this email, you can safely close this page. Vendora support: <a href="mailto:support@myvendora.co.ke">support@myvendora.co.ke</a>.</p>
+      </div>
+      <div class="auth-actions">
+        <button id="retry-action" class="plain-button" type="button" hidden>Check this link again</button>
+        <a class="text-link" href="../">Visit Vendora <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+    <p class="auth-footnote">Vendora will never ask you to share an email action link or password with support.</p>
+  </main>
+  <!-- Firebase action processing stays isolated from the marketing page scripts. -->
+  <script type="module" src="/wdhh/auth-action.mjs"></script>
+</body>
+</html>
