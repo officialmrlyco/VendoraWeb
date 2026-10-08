@@ -1,5 +1,21 @@
 # Vendora public website
 
+## Publication and compatibility checks (2026-10-08)
+
+- Published the reviewed homepage/assets, detailed Terms and Privacy, and legal source/owner checklist together through the existing GitHub Pages main-root source. `npm test` passes all six checks; scoped whitespace checks pass. Do not add public catalog reads, invented testimonials/stats, or private admin data.
+- Privacy disclosures now distinguish the public marketing site from the private admin portal's Firebase authentication persistence and Turnstile/browser verification. Terms cover account-wide backup limits, acknowledged transfers, running logout Time deadlines, merchant domain renewal, payment reconciliation, future plan changes and lawful business protections without waiving mandatory rights.
+- Keep the existing registration acceptance identifier `2026-10-07`; a new mandatory identifier would break the current app's version check. Future material changes require versioned documents, compatible clients/backend and a real acceptance/notice process. The publication is not a record of existing-user reacceptance.
+- The owner has no confirmed physical/postal address and Vendora registration is planned. Formal operator/address details, ODPC registration or exemption, retention/provider safeguards, and Kenyan advocate review remain real owner actions listed in `LEGAL_REVIEW_AND_COMPLIANCE_NOTES.md`. Never label the drafting a compliance certificate or a guarantee against liability.
+
+## Kenyan Terms and Privacy Rewrite (2026-10-08)
+
+- Rewrote `/terms/` and `/policy/` as detailed, readable disclosures aligned with the current Android/Firebase/online-commerce flows. Kept `privacy.html` as a styled legacy redirect with a current-policy fallback link.
+- Current public operator wording, confirmed by the owner: Vendora is operated under **LYCO SERVICES**, with parent **LYCO TECHNOLOGIES**. These are brand/operator names only; do not describe Vendora as registered before registration is completed, do not imply LYCO SERVICES/LYCO TECHNOLOGIES has a particular corporate status, and do not invent a physical/postal address. The owner still needs to confirm the formal operator identity/status and address.
+- The terms distinguish on-device SMS/USSD and local records from selected Firebase records; identify one Firebase account with up to five merchant profile slots; warn that local histories are not a guaranteed cloud backup; distinguish offline merchant payments, Vendora platform subscription payments, and merchant customer orders. Unit backups require source clearing and acknowledgement, pause remaining Time, use fixed redemption expiry, and are account-bound/single-use. Normal logout/handover keeps the original Time deadline. State eTop is disabled, avoid promises of checkout/fulfillment, preserve statutory rights and provide a proportionate liability clause with non-excludable-rights carve-outs.
+- The privacy page separates controller/processor roles by purpose, lists actual data categories/purposes/providers, describes server-only Daraja credentials and no M-PESA PIN, avoids claiming Kenya data residency or fixed deletion guarantees, lists rights/ODPC complaint route and breach response, and explains current website behavior: no Vendora analytics/cookie storage/Turnstile, with a GitHub release metadata request and a Firebase email-action route.
+- Legal research and an owner/counsel checklist are in `LEGAL_REVIEW_AND_COMPLIANCE_NOTES.md`. Its statutory duties section is separate from proposed contract terms. Confirm provider regions/transfers, ODPC registration/exemption, actual operator details, retention schedule, merchant processor terms, rights request handling, breach response and transaction consumer disclosures before treating these drafts as final legal advice or certification.
+- This legal refresh is published with the reviewed public-site visual refresh; deployment evidence is recorded below. The private admin authentication repair is committed separately in `vendora`. Public pages must never contain private merchant or authentication data.
+
 - This repository contains only the public marketing/help/download website. The private app, admin panel, customer records and API credentials belong in officialmrlyco/Vendora and Firebase, never here.
 - GitHub Pages serves the main branch root at myvendora.co.ke. CNAME binds the domain; www points to officialmrlyco.github.io. No wildcard DNS. Cloudflare holds DNS; the registrar/customer owns renewal.
 - Brand: Vendora blue #2563EB, dark navy/slate header and hero, light body, clean readable mobile/desktop layouts. Use the owner's actual assets from the private app: assets/vendora-symbol.png is the approved outlined blue symbol; assets/vendora-app-logo.png is the approved app logo; assets/favicon.png is the existing Android launcher icon. Never substitute a typed V or invented mark. Keep public copy honest: merchant websites/checkout availability depends on service readiness and connected providers; don't claim a launch date or provider status that has not been confirmed.
@@ -18,6 +34,30 @@
 - Footer attribution is © Vendora; “Lyco Technologies” links to `https://lycotechnologies.co.ke`. Approved support remains `support@myvendora.co.ke` and WhatsApp `+254748008585`.
 - Read ODPC Kenya's data-subject-rights page and Data Protection Act/General Regulations while drafting. These are general informational documents; review with counsel before representing them as legal advice or certification.
 - Checks requested for this change: `npm test`; inspect static requests/routes/copy and, where available, browser preview. No deployment, APK release, private Vendora repository mutation, DNS/config mutation, or commit in this task.
+
+## Public Marketing, Interactive UI and Visual Assets Overhaul (2026-10-08)
+
+- **Requirements & User Direction**:
+  - The user requested an overhaul of the public website (`https://github.com/officialmrlyco/VendoraWeb`) to make it significantly more appealing, modern, and engaging.
+  - Requested rich visual textures, generated hero backgrounds, workflow isometric preview illustrations, and upgraded iconography across features and legal pages (Privacy and Terms of Service).
+  - All test invariants in `public-model.test.mjs` must be preserved (zero price reads, six quick links, strict CSS grid breakpoints, legal disclosures, and Lyco Technologies attribution).
+
+- **Visual Assets Generated & Deployed**:
+  - `assets/hero-bg.jpg`: 8K ultra-modern dark navy digital abstract background texture with glowing electric blue cybernetic waves, sleek mesh gradients, and geometric light vectors. Blended seamlessly into `.hero` under a multi-stop translucent dark navy gradient.
+  - `assets/workflow-preview.jpg`: Isometric 3D glassmorphic fintech transaction flow art connecting mobile payment intake to an automated dashboard hub card. Embedded directly inside the interactive demonstration card (`.demo-card`) above transaction checkpoints.
+
+- **Architectural UI & CSS Enhancements (`styles.css` & `index.html`)**:
+  - **Site Header**: Upgraded to frosted glass sticky navigation with `backdrop-filter: blur(16px)`, translucent border `rgba(255, 255, 255, 0.08)`, and interactive glowing underlines on hover.
+  - **Hero Section**: Integrated cybernetic background texture, animated pulsing cyan beacon dot (`.blue-dot`), gradient text fill on emphasis (`em`), glowing tactile CTA buttons, and telemetry feature pills (`⚡ Direct SIM USSD`, `🔒 Isolated Merchant Profiles`, `📱 Native Android Engine`).
+  - **Quick Links (`.quick-links`)**: Preserved the six required destination cards (`#how-it-works`, `#features`, `#help`, `#download`, `#contact`, `/policy`) with `border-radius: 13px`, elevated hover lift (`translateY(-3px)`), and crisp monospace counter badges.
+  - **Interactive Workflow (`#how-it-works`)**: Combined the 3-step numbered flow with the newly generated 3D pipeline banner, mock payment SMS alert, arrow connector, and verified transaction result.
+  - **Feature Grid (`#features`)**: Preserved 3-column desktop, 2-column tablet, and 1-column mobile layouts. Equipped each feature card with custom inline SVG icons (Card/Shield, Cellular Antenna, CRM Silhouette, Analytics Chart) and subtle card hover sheen.
+  - **Websites & Downloads (`#websites`, `#download`)**: Cleaned up structured onboarding steps, availability pill, official app logo card, and live GitHub release status checkers.
+  - **Legal Routes (`/terms/`, `/policy/`, `privacy.html`)**: Bumped asset revisions to `?v=20261008`. Preserved all required statutory phrasing (ODPC, Safaricom, Daraja, Firebase, Cloudflare, eTop disabled state) while improving reading contrast and typographic hierarchy.
+
+- **Verification Results**:
+  - `npm test` passed 6/6 tests with 0 failures in 162ms.
+  - Static HTML/CSS validation confirmed clean markup with zero Mojibake and strict adherence to responsive breakpoints.
 
 ## Branded account-action route (2026-10-08)
 
