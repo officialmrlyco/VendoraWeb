@@ -1,5 +1,12 @@
 # Vendora public website
 
+## Plain website labels without emoji or glowing dots (2026-10-09)
+
+- Latest owner preference: avoid emoji and glowing decorative dots on websites. This supersedes the earlier visual-overhaul direction to add emoji feature pills and pulsing cyan beacons. Apply the same preference to future website work; do not reintroduce them because an older design note suggests it.
+- Removed the homepage's three emoji feature icons and the decorative beacon from the homepage plus both account-action routes. Deleted their CSS selector, repeating keyframes, reduced-motion override and unused glow variables instead of merely hiding them. Plain labels preserve the existing meaning; normal interface arrows, vector feature icons and functional loading indicators are separate from decorative emoji/dots.
+- Refreshed the shared stylesheet revision on all six HTML routes. Heading, title, 28 FAQs, structured data, favicon and account-action security logic remain unchanged. Verification/publication evidence is recorded below after checks.
+- Local verification: six existing tests pass, source whitespace checks pass, all six shipped pages contain no emoji presentation characters or dot markup, and removed animation/glow tokens are absent from the stylesheet.
+
 ## Favicon, airtime automation SEO and expanded FAQ (2026-10-09)
 
 - Owner requested the heading/title to identify Best Airtime Selling Automation and clear FAQs for people, search engines and AI discovery. Homepage H1/title/share metadata now identify airtime selling automation for Kenyan Android merchants. Keep the product explanation accurate; never turn the owner's marketing phrase into an invented independent ranking, review score or provider endorsement.

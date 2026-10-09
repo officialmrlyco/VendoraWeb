@@ -11,7 +11,7 @@
   <link rel="icon" href="/favicon.ico" sizes="192x192">
   <link rel="icon" href="/favicon.png" type="image/png" sizes="192x192">
   <link rel="apple-touch-icon" href="/favicon.png">
-  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../styles.css?v=2026100902">
   <!-- Older email links use the same repaired dark theme as the /auth/ route. -->
   <link rel="stylesheet" href="./auth-action.css?v=20261008-auth">
   <title>Vendora account security</title>
@@ -22,7 +22,8 @@
     <!-- The account-action page uses the same approved symbol and browser icon. -->
     <a class="auth-brand" href="../"><img src="../assets/vendora-symbol.png" width="40" height="40" alt=""><span>Vendora</span></a>
     <section class="auth-card" aria-labelledby="action-title">
-      <p class="auth-eyebrow"><span class="blue-dot" aria-hidden="true"></span> ACCOUNT SECURITY</p>
+      <!-- / note: Older email links share the same plain account-security label. -->
+      <p class="auth-eyebrow">ACCOUNT SECURITY</p>
       <div id="action-status" class="auth-status" role="status" aria-live="polite" aria-busy="true">
         <span class="auth-spinner" aria-hidden="true"></span>
         <h1 id="action-title">Checking your link</h1>
