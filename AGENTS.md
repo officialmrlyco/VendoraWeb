@@ -5,6 +5,7 @@
 - The owner clarified that upward diagonal arrows should also be eliminated. The screenshot refers to this public website. Removed decorative glyphs from the header/hero actions, six quick-link cards, website/release/support links and both account-action return links. Plain action labels, button styling, underline hover and visible keyboard focus provide the interaction cues. Removed the unused quick-link arrow CSS; do not substitute another decorative arrow or emoji.
 - This direction supersedes earlier notes that permitted ordinary interface arrows after emoji cleanup. Functional FAQ disclosure controls and the illustrative workflow connector are separate from link decorations. No Flutter/native source changed in this website-scoped request.
 - Shared stylesheet revision advances on all six routes so cached clients receive the cleanup. Keep the same hrefs, release-download IDs, six navigation destinations, heading/SEO/FAQ content, favicon and account-action behavior.
+- Six existing tests and source whitespace checks pass. Explicit checks confirmed no upward glyphs in all six shipped HTML routes, no unused quick-link arrow selectors, and retained keyboard focus rules. Published commit 76e6c3b with a successful GitHub Pages build; live HTTP confirmed no upward arrows and revision 2026100903. Browser verification recovered by opening a fresh tab in the same browser after a stale-tab timeout, then visibly confirmed the plain header/support actions and saved a local screenshot.
 
 ## Plain website labels without emoji or glowing dots (2026-10-09)
 
