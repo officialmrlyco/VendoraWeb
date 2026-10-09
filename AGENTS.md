@@ -6,6 +6,7 @@
 - Removed the homepage's three emoji feature icons and the decorative beacon from the homepage plus both account-action routes. Deleted their CSS selector, repeating keyframes, reduced-motion override and unused glow variables instead of merely hiding them. Plain labels preserve the existing meaning; normal interface arrows, vector feature icons and functional loading indicators are separate from decorative emoji/dots.
 - Refreshed the shared stylesheet revision on all six HTML routes. Heading, title, 28 FAQs, structured data, favicon and account-action security logic remain unchanged. Verification/publication evidence is recorded below after checks.
 - Local verification: six existing tests pass, source whitespace checks pass, all six shipped pages contain no emoji presentation characters or dot markup, and removed animation/glow tokens are absent from the stylesheet.
+- Published commit 466e42b through the existing GitHub Pages source (built successfully). Live homepage HTTP and browser checks confirmed plain feature labels, zero decorative dot elements and the new stylesheet revision. Saved a local screenshot of the result; this verification does not change any app/backend behavior.
 
 ## Favicon, airtime automation SEO and expanded FAQ (2026-10-09)
 
