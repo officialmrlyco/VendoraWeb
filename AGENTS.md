@@ -1,5 +1,13 @@
 # Vendora public website
 
+## Favicon, airtime automation SEO and expanded FAQ (2026-10-09)
+
+- Owner requested the heading/title to identify Best Airtime Selling Automation and clear FAQs for people, search engines and AI discovery. Homepage H1/title/share metadata now identify airtime selling automation for Kenyan Android merchants. Keep the product explanation accurate; never turn the owner's marketing phrase into an invented independent ranking, review score or provider endorsement.
+- Expanded five FAQs to 28 grouped static answers about setup, SMS/USSD, permissions, Till/Number/PayBill controls, DISALLOWED/held work, retries, connectivity, account/profile slots, Runs/Time, backups, phone transfers, recovery, records, websites, provider readiness, renewals, PIN safety and support. Native mode enforcement remains in the private app. eTop production checkout remains disabled; do not imply a website or saved credentials enables delivery. No public prices or private customer/catalog reads were added.
+- Existing assets/favicon.png was already linked but there was no root favicon fallback. Added stable /favicon.png and /favicon.ico on all six HTML routes. scripts/build-discovery.mjs preserves the approved 192px artwork byte-for-byte and wraps it in a PNG-containing ICO directory; do not generate a replacement mark or manually encode an unrelated icon.
+- Run npm run build:discovery after editing visible FAQ paragraphs: it regenerates WebSite, SoftwareApplication and FAQPage JSON-LD directly from that HTML and fails on unsupported FAQ markup. No invented offers or ratings. robots.txt allows public crawling; sitemap.xml lists only home, terms and policy canonical routes. Account-action routes retain noindex,nofollow and are excluded from the sitemap; their code handling is unchanged.
+- Verified locally: six existing tests pass; 28 unique FAQ questions parse as JSON-LD; one H1; root icon links on all six routes; ICO contains the exact approved PNG; account-action noindex and source whitespace checks pass. Search appearance/indexing/AI citations and FAQ rich results are not guaranteed. Publication and browser evidence are recorded after deployment below.
+
 ## GitHub Firebase browser-key alert review (2026-10-09)
 
 - Reviewed GitHub secret-scanning alert 1 against live Google Cloud configuration. The value in `wdhh/auth-action.mjs` matches the auto-created Firebase Browser key; Firebase client configuration is public by design. Do not revoke it merely because GitHub classifies its string as a Google API Key, and do not hide it through encoding or suppress all secret scanning. Real server/provider credentials must remain private.

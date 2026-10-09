@@ -1,0 +1,5 @@
+# / note: Public content and icons can be crawled. Account-action pages retain their HTML noindex.
+User-agent: *
+Allow: /
+
+Sitemap: https://myvendora.co.ke/sitemap.xml

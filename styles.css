@@ -829,6 +829,20 @@ a {
   margin-bottom: 30px;
 }
 
+/* / note: Topic headings keep the expanded static FAQ easy to scan on small screens. */
+.faq-group {
+  margin: 36px 0 14px;
+  color: #2563eb;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.faq summary:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 5px;
+  border-radius: 4px;
+}
+
 .faq details {
   border-top: 1px solid #e2e8f0;
   padding: 22px 0;

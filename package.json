@@ -1,1 +1,1 @@
-{"name":"vendora-public-site","private":true,"type":"module","scripts":{"test":"node --test *.test.mjs"}}
+{"name":"vendora-public-site","private":true,"type":"module","scripts":{"build:discovery":"node scripts/build-discovery.mjs","test":"node --test *.test.mjs"}}

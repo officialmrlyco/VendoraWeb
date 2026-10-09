@@ -8,6 +8,9 @@ The download section reads stable releases from this repository. Publish only a 
 
 The public marketing pages do not display package numbers or prices and do not read Firestore package catalogs. Current purchase information belongs in the Vendora app. The public site reads only official stable GitHub release metadata for its download section.
 
+<!-- / note: Keep crawler-facing descriptions synchronized with the visible public product explanation. -->
+The homepage has static, grouped FAQs and generated WebSite, SoftwareApplication and FAQPage JSON-LD. After changing FAQ answers, run `npm run build:discovery` and `npm test`, then commit the generated homepage and root favicon files. The generator derives answers from visible HTML and wraps the approved PNG in an ICO container without changing the artwork. It does not add ratings, price offers or runtime data requests. `robots.txt` and `sitemap.xml` expose the canonical public pages; account-action routes remain `noindex,nofollow` and are absent from the sitemap. Search ranking, favicon display and inclusion in AI answers are controlled by the relevant search service and are not guaranteed by this markup.
+
 The homepage follows a centered dark hero with six quick-link cards and a separate illustrative workflow. The legal pages are available at `/terms/` and `/policy/`; the old `/privacy.html` page redirects to `/policy/`. They describe known product data flows, unit backups, device transfers and payment/domain responsibilities. Drafting was researched against Kenya Law and ODPC primary materials; it is not legal advice or compliance certification. `LEGAL_REVIEW_AND_COMPLIANCE_NOTES.md` records sources and the remaining operator, address, registration, provider and advocate checks. The eTop production adapter is currently disabled pending provider integration.
 
 <!-- / note: Required app acceptance versions must change only with a compatible app/server rollout. -->
