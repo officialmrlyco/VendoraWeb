@@ -1,5 +1,13 @@
 # Vendora public website
 
+## GitHub Firebase browser-key alert review (2026-10-09)
+
+- Reviewed GitHub secret-scanning alert 1 against live Google Cloud configuration. The value in `wdhh/auth-action.mjs` matches the auto-created Firebase Browser key; Firebase client configuration is public by design. Do not revoke it merely because GitHub classifies its string as a Google API Key, and do not hide it through encoding or suppress all secret scanning. Real server/provider credentials must remain private.
+- Live API restrictions use Firebase's broad generated allowlist; `generativelanguage.googleapis.com` is absent, and neither it nor Firebase AI Logic is enabled. Browser referrer restrictions are empty. Narrowing the browser key to the required Auth services and the actual Vendora website/admin hosts is a separate hardening change requiring compatibility validation. The private admin browser uses this same key for Auth; do not accidentally break sign-in, custom-token exchange, token refresh, or action links.
+- Deployed Firestore rules matched the private checkout on review. Private merchant/account records require verified owner identity; provider credential documents and unknown namespaces deny client access. A read-only anonymous request to a nonexistent document in the private credential namespace returned HTTP 403 PERMISSION_DENIED. Startup prices/settings intentionally have bounded public access; the key does not itself grant private access.
+- Seven-day API-key-attributed monitoring returned only 84 Identity Toolkit requests and 27 Secure Token requests, with no further page. These aggregate metrics show no high-volume activity in that sample; they cannot establish that every request was authorized or replace a forensic audit. App Check service-list response was empty; do not claim project-wide Auth/Firestore App Check enforcement from callable source annotations.
+- Review changed no keys, domains, rules, quotas, accounts, or alert state. GitHub alert remains open. Authentication endpoints are still publicly callable, so quota abuse/brute-force defenses remain relevant. Consult https://firebase.google.com/docs/projects/api-keys before any restriction changes. Read-only audit evidence stays in the private repository's Git-ignored `.firebase` directory, never in this public site.
+
 ## Publication and compatibility checks (2026-10-08)
 
 - Published the reviewed homepage/assets, detailed Terms and Privacy, and legal source/owner checklist together through the existing GitHub Pages main-root source. `npm test` passes all six checks; scoped whitespace checks pass. Do not add public catalog reads, invented testimonials/stats, or private admin data.
