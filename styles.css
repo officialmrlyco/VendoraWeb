@@ -173,12 +173,22 @@ a {
   font-weight: 600;
   font-size: 13.5px;
   color: var(--blue);
-  transition: color 0.18s ease, transform 0.18s ease;
+  /* / note: Link affordance comes from readable labels and underline feedback, not arrow glyphs. */
+  text-underline-offset: 4px;
+  transition: color 0.18s ease;
 }
 
 .text-link:hover {
   color: #1d4ed8;
-  transform: translateX(2px);
+  text-decoration: underline;
+}
+
+/* / note: Clear keyboard focus keeps plain buttons, text links and whole-card links discoverable. */
+.button:focus-visible,
+.text-link:focus-visible,
+.quick-links a:focus-visible {
+  outline: 2px solid #60a5fa;
+  outline-offset: 4px;
 }
 
 .section {
@@ -358,21 +368,7 @@ a {
   margin-top: 6px;
 }
 
-.quick-links b {
-  position: absolute;
-  right: 14px;
-  top: 16px;
-  font-weight: 400;
-  color: #94a3b8;
-  font-size: 13px;
-  transition: transform 0.18s ease, color 0.18s ease;
-}
-
-.quick-links a:hover b {
-  color: var(--blue);
-  transform: translate(2px, -2px);
-}
-
+/* / note: Whole-card hover and focus styles replace the removed corner-arrow decoration. */
 /* / note: Section headings. */
 .section-heading {
   max-width: 660px;

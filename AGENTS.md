@@ -1,5 +1,11 @@
 # Vendora public website
 
+## Plain website actions without decorative link arrows (2026-10-09)
+
+- The owner clarified that upward diagonal arrows should also be eliminated. The screenshot refers to this public website. Removed decorative glyphs from the header/hero actions, six quick-link cards, website/release/support links and both account-action return links. Plain action labels, button styling, underline hover and visible keyboard focus provide the interaction cues. Removed the unused quick-link arrow CSS; do not substitute another decorative arrow or emoji.
+- This direction supersedes earlier notes that permitted ordinary interface arrows after emoji cleanup. Functional FAQ disclosure controls and the illustrative workflow connector are separate from link decorations. No Flutter/native source changed in this website-scoped request.
+- Shared stylesheet revision advances on all six routes so cached clients receive the cleanup. Keep the same hrefs, release-download IDs, six navigation destinations, heading/SEO/FAQ content, favicon and account-action behavior.
+
 ## Plain website labels without emoji or glowing dots (2026-10-09)
 
 - Latest owner preference: avoid emoji and glowing decorative dots on websites. This supersedes the earlier visual-overhaul direction to add emoji feature pills and pulsing cyan beacons. Apply the same preference to future website work; do not reintroduce them because an older design note suggests it.
