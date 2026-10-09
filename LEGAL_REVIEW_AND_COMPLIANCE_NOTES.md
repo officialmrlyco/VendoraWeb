@@ -1,6 +1,6 @@
 # Vendora legal pages: source notes and owner checklist
 
-**Draft updated:** 8 October 2026  
+**Draft updated:** 8 October 2026
 **Scope:** Public VendoraWeb terms and privacy notice. This is an operational drafting aid, not a Kenyan legal opinion or a representation of compliance certification.
 
 ## What the public pages now say
