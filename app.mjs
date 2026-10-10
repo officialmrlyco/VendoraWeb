@@ -1,7 +1,7 @@
 // / note: Match the HTML revision so cached pages use the same validated release model.
-import {RELEASES_URL,availableRelease,officialRelease} from './public-model.mjs?v=20261010';
+import {RELEASES_URL,availableRelease,officialRelease} from './public-model.mjs?v=2026101002';
 // / note: This published snapshot is verified against the signed APK; refresh it after a release replacement.
-import {PUBLISHED_RELEASES} from './release-info.mjs?v=20261010';
+import {PUBLISHED_RELEASES} from './release-info.mjs?v=2026101002';
 
 const el = (id) => document.getElementById(id);
 async function json(url) {
@@ -34,13 +34,13 @@ function publishedDetail(release) {
 // / note: A validated local snapshot is immediately usable while GitHub's bounded request runs.
 const fallbackRelease = officialRelease(PUBLISHED_RELEASES);
 let currentRelease = fallbackRelease;
-renderRelease(currentRelease, currentRelease ? `${publishedDetail(currentRelease)} Checking for a newer release…` : 'Checking the official release page for a signed Vendora APK.');
+renderRelease(currentRelease, currentRelease ? `${publishedDetail(currentRelease)} Checking for a newer release…` : 'Checking availability of the signed Vendora APK.');
 el('retry-release').hidden = !currentRelease;
 
 async function loadRelease() {
   el('retry-release').hidden = !currentRelease;
   if (currentRelease) renderRelease(currentRelease, `${publishedDetail(currentRelease)} Checking for a newer release…`);
-  else renderRelease(null, 'Checking the official release page for a signed Vendora APK.');
+  else renderRelease(null, 'Checking availability of the signed Vendora APK.');
   try {
     const release = availableRelease(await json(RELEASES_URL), PUBLISHED_RELEASES);
     if (!release) {
@@ -58,7 +58,8 @@ async function loadRelease() {
       renderRelease(currentRelease, `${publishedDetail(currentRelease)} We could not check whether a newer release is available. Try again later.`);
       el('retry-release').hidden = false;
     } else {
-      renderRelease(null, 'We could not check releases right now. Try again or open the official release page below.');
+      // / note: Recovery stays on Vendora; never direct customers to a repository or release page.
+      renderRelease(null, 'We could not check the download right now. Try again or contact support.');
       el('retry-release').hidden = false;
     }
   }

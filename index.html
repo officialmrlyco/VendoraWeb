@@ -96,7 +96,7 @@
           "name": "Where do I download the official Vendora app?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Use the official download section on this website. It checks stable APK releases in the official VendoraWeb GitHub repository and shows a download only when a release is available. If no release is available, contact support; avoid unofficial APK links."
+            "text": "Use the official download section on this website to download the signed Vendora APK directly. If the download is unavailable, contact support; avoid unofficial APK links."
           }
         },
         {
@@ -525,7 +525,8 @@
       <div>
         <p class="eyebrow">OFFICIAL ANDROID RELEASES</p>
         <h2>Get Vendora<br>for Android.</h2>
-        <p class="lead">The download link is shown only when a stable APK release is available in the official VendoraWeb GitHub releases.</p>
+        <!-- / note: Customers download the signed APK here; provider/repository navigation is not a public action. -->
+        <p class="lead">Download the official signed Vendora app for Android.</p>
         <p class="quiet">Install an official release and review Android permission requests before granting them.</p>
       </div>
       <div class="release-card">
@@ -539,7 +540,6 @@
         <p id="release-detail" aria-live="polite">Official signed Android release. Version 1.0.1, build code 1.</p>
         <!-- / note: Verified published fallback also works without JavaScript. -->
         <a id="apk-download" class="button" href="https://github.com/officialmrlyco/VendoraWeb/releases/download/v1.0.1/Vendora-1.0.1.apk">Download APK</a>
-        <a class="text-link" href="https://github.com/officialmrlyco/VendoraWeb/releases" target="_blank" rel="noopener">Open all official releases</a>
         <p id="release-size" class="quiet">91.0 MB · Android APK</p>
         <button id="retry-release" class="plain-button" type="button" hidden>Check releases again</button>
       </div>
@@ -572,7 +572,7 @@
       </details>
       <details>
         <summary>Where do I download the official Vendora app?</summary>
-        <p>Use the <a href="#download">official download section</a> on this website. It checks stable APK releases in the official VendoraWeb GitHub repository and shows a download only when a release is available. If no release is available, contact support; avoid unofficial APK links.</p>
+        <p>Use the <a href="#download">official download section</a> on this website to download the signed Vendora APK directly. If the download is unavailable, contact support; avoid unofficial APK links.</p>
       </details>
       <h3 class="faq-group">Phone setup and execution</h3>
       <details>
@@ -685,7 +685,7 @@
     </section>
   </main>
 
-  <!-- / note: Official footer with linked Lyco Technologies attribution. -->
+  <!-- / note: Footer provides legal/support navigation and Lyco attribution, without repository links. -->
   <footer>
     <a class="brand" href="./">
       <img src="./assets/vendora-symbol.png" width="38" height="38" alt="">
@@ -695,13 +695,12 @@
     <div>
       <a href="/terms">Terms</a>
       <a href="/policy">Privacy policy</a>
-      <a href="https://github.com/officialmrlyco/VendoraWeb/releases" target="_blank" rel="noopener">Releases</a>
       <a href="#contact">Support</a>
     </div>
     <small>© <span id="year">2026</span> Vendora</small>
   </footer>
 
   <!-- / note: Bump this module revision when release fallback and retry behavior changes. -->
-  <script type="module" src="./app.mjs?v=20261010"></script>
+  <script type="module" src="./app.mjs?v=2026101002"></script>
 </body>
 </html>

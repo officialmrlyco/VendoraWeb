@@ -1,5 +1,10 @@
 # Vendora public website
 
+## Direct download without GitHub navigation (2026-10-10)
+
+- MrLyco requires the website download action to download the APK directly. Removed Open all official releases and the footer Releases link; never reintroduce repository, GitHub profile or release-page navigation for customers. The signed APK remains hosted as the existing verified GitHub asset, but that direct file download is the only permitted GitHub href in customer pages.
+- Download explanation and FAQ now describe the customer action without repository details. Error recovery offers retry/support rather than a removed release-page link. README's release navigation points to the website download section. Keep verified snapshot, URL validation, version 1.0.1/code 1 and mutable release unchanged. Advance the app module/import cache revision and regenerate discovery JSON from the visible FAQ before publishing.
+
 ## Published signed Vendora 1.0.1 (2026-10-10)
 
 - Owner explicitly authorized a signed 1.0.1 release and mutable assets. Do not increase versionName or versionCode without explicit authorization; ask first if a different value is necessary. Version remains 1.0.1 / code 1, asset Vendora-1.0.1.apk, public tag v1.0.1 in officialmrlyco/VendoraWeb. Repository immutability is disabled and the published release reports immutable=false.
