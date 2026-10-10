@@ -4,6 +4,7 @@
 
 - MrLyco requires the website download action to download the APK directly. Removed Open all official releases and the footer Releases link; never reintroduce repository, GitHub profile or release-page navigation for customers. The signed APK remains hosted as the existing verified GitHub asset, but that direct file download is the only permitted GitHub href in customer pages.
 - Download explanation and FAQ now describe the customer action without repository details. Error recovery offers retry/support rather than a removed release-page link. README's release navigation points to the website download section. Keep verified snapshot, URL validation, version 1.0.1/code 1 and mutable release unchanged. Advance the app module/import cache revision and regenerate discovery JSON from the visible FAQ before publishing.
+- Verification: existing 8/8 website tests and whitespace checks passed; regenerated all 28 FAQ entries. Commit c2aeda8df6aa2a9442da7ee7a1716d47f477d5fa built successfully on GitHub Pages. Live canonical homepage returned 200 with zero GitHub page links and exactly one direct APK download; live app module has the revised retry/support recovery copy and revision 2026101002.
 
 ## Published signed Vendora 1.0.1 (2026-10-10)
 
