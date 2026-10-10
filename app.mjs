@@ -1,11 +1,13 @@
 // / note: Match the HTML revision so cached pages use the same validated release model.
-import {RELEASES_URL,availableRelease,officialRelease} from './public-model.mjs?v=2026101002';
+import {RELEASES_URL,availableRelease,officialRelease} from './public-model.mjs?v=2026101003';
 // / note: This published snapshot is verified against the signed APK; refresh it after a release replacement.
-import {PUBLISHED_RELEASES} from './release-info.mjs?v=2026101002';
+import {PUBLISHED_RELEASES} from './release-info.mjs?v=2026101003';
 
 const el = (id) => document.getElementById(id);
 async function json(url) {
-  const response = await fetch(url, {signal: AbortSignal.timeout(8000)});
+  // / note: Mutable replacements must recheck metadata instead of trusting an
+  // older browser response; this remains one bounded request and manual retry.
+  const response = await fetch(url, {cache: 'no-store', signal: AbortSignal.timeout(8000)});
   if (!response.ok) throw new Error('Information is unavailable.');
   return response.json();
 }

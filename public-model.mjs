@@ -11,7 +11,14 @@ export function officialRelease(releases) {
       if (typeof a.name !== 'string' || !/\.apk$/i.test(a.name) || /debug/i.test(a.name)) return false;
       try { const url = new URL(a.browser_download_url); return url.protocol === 'https:' && url.hostname === 'github.com' && !url.username && !url.password && url.pathname.startsWith('/officialmrlyco/VendoraWeb/releases/download/'); } catch { return false; }
     });
-    if (asset) return {name:String(release.name || release.tag_name).slice(0,120),tag:String(release.tag_name || '').slice(0,60),date:release.published_at,url:asset.browser_download_url,size:Number(asset.size)||0};
+    if (asset) {
+      // / note: Mutable APKs keep their version and filename. A verified digest
+      // changes the direct download cache key so browsers fetch the replacement.
+      const url = new URL(asset.browser_download_url);
+      const digest = /^sha256:([a-f0-9]{64})$/i.exec(String(asset.digest || ''));
+      if (digest) url.searchParams.set('build', digest[1].slice(0,16).toLowerCase());
+      return {name:String(release.name || release.tag_name).slice(0,120),tag:String(release.tag_name || '').slice(0,60),date:release.published_at,url:url.href,size:Number(asset.size)||0};
+    }
   }
   return null;
 }

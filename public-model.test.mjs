@@ -6,6 +6,16 @@ import {availableRelease,officialRelease} from './public-model.mjs';
 import {PUBLISHED_RELEASES} from './release-info.mjs';
 
 const release=(url,name='vendora.apk',extra={})=>({name:'Vendora',published_at:'2026-10-07T10:00:00Z',assets:[{name,browser_download_url:url,size:123}],...extra});
+
+// / note: Replacing 1.0.1 must invalidate the direct-file cache without sending
+// customers to a release page or increasing the public application version.
+test('mutable signed APK digest changes the direct download cache key',()=>{
+  const url='https://github.com/officialmrlyco/VendoraWeb/releases/download/v1.0.1/Vendora-1.0.1.apk';
+  const asset=digest=>release(url,'Vendora-1.0.1.apk',{assets:[{name:'Vendora-1.0.1.apk',browser_download_url:url,size:123,digest}]});
+  assert.equal(officialRelease([asset(`sha256:${'a'.repeat(64)}`)]).url,`${url}?build=${'a'.repeat(16)}`);
+  assert.equal(officialRelease([asset(`sha256:${'b'.repeat(64)}`)]).url,`${url}?build=${'b'.repeat(16)}`);
+  assert.equal(officialRelease([asset('untrusted digest')]).url,url);
+});
 test('APK links must belong to the exact official repo and be stable signed releases',()=>{
   const url='https://github.com/officialmrlyco/VendoraWeb/releases/download/v1/vendora.apk';
   assert.equal(officialRelease([release(url)]).url,url);

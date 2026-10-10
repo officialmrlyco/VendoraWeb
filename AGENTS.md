@@ -1,5 +1,12 @@
 # Vendora public website
 
+## Signed startup replacement and mutable download caching (2026-10-10)
+
+- The first signed 1.0.1 APK crashed before Flutter because R8 removed WorkManager's Room database constructor. The private app now preserves Room zero-argument constructors. Its corrected optimized APK passed constructor/signature/version/private-credential checks and three cold launches to login on the connected TECNO CL8 / Android 15. This is startup acceptance; account-specific sign-in, camera and payments are separate checks.
+- The mutable v1.0.1 release was replaced with Vendora-1.0.1.apk, exactly 95,520,367 bytes, SHA-256 b75db2b80ab7f41e68aefc4b3a42013399c352e77237e3ff6698537ee127eb30. GitHub readback confirms that digest, all three uploaded assets and immutable=false. Version/code remain 1.0.1/1. No handset evidence or private credentials belong in this public repository.
+- Static fallback and validated live release metadata now add build=first16Digest to the direct APK download URL. Replacing the same version/filename therefore changes the browser cache key. Only validated SHA-256 digest text can affect this key; the exact official repository URL allowlist remains. Release lookup is one bounded no-store request with manual retry, not polling. Modules use revision 2026101003. Never reintroduce customer GitHub page navigation.
+- All nine public website tests pass, including same-version replacement cache invalidation and snapshot/static-link agreement. Publication and canonical live readback must be recorded after Pages completes.
+
 ## Direct download without GitHub navigation (2026-10-10)
 
 - MrLyco requires the website download action to download the APK directly. Removed Open all official releases and the footer Releases link; never reintroduce repository, GitHub profile or release-page navigation for customers. The signed APK remains hosted as the existing verified GitHub asset, but that direct file download is the only permitted GitHub href in customer pages.
