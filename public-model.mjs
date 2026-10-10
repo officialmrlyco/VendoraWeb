@@ -1,6 +1,7 @@
 // Public release metadata is the only remote product data shown on this site.
 export const RELEASES_URL = 'https://api.github.com/repos/officialmrlyco/VendoraWeb/releases?per_page=10';
 
+// / note: Validate all release sources through one boundary before a URL reaches the download button.
 export function officialRelease(releases) {
   if (!Array.isArray(releases)) throw new Error('Release information is invalid.');
   // Ignore previews, drafts and debug builds; untrusted release URLs never enter href.
@@ -13,4 +14,10 @@ export function officialRelease(releases) {
     if (asset) return {name:String(release.name || release.tag_name).slice(0,120),tag:String(release.tag_name || '').slice(0,60),date:release.published_at,url:asset.browser_download_url,size:Number(asset.size)||0};
   }
   return null;
+}
+
+// / note: Stable live metadata wins; a verified published snapshot keeps downloads available on API failure.
+export function availableRelease(liveReleases, publishedReleases) {
+  const live = officialRelease(liveReleases);
+  return live || officialRelease(publishedReleases);
 }

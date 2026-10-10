@@ -1,5 +1,19 @@
 # Vendora public website
 
+## Published signed Vendora 1.0.1 (2026-10-10)
+
+- Owner explicitly authorized a signed 1.0.1 release and mutable assets. Do not increase versionName or versionCode without explicit authorization; ask first if a different value is necessary. Version remains 1.0.1 / code 1, asset Vendora-1.0.1.apk, public tag v1.0.1 in officialmrlyco/VendoraWeb. Repository immutability is disabled and the published release reports immutable=false.
+- Before publication, apksigner verified the permanent signing certificate, manifest identity/non-debuggable flag and absence of the private development credential. GitHub's uploaded APK digest matches local SHA-256 97903f7f10d397485b9a141b5935bda0f3e6d617ccda12147511dd7b575482ba (95,454,835 bytes). The release also contains a checksum and public build-info JSON; no signing key, Firebase credentials, debug tokens or user records were uploaded. Mobile source commit is 4274ec0f2dbdbbcbe8bd1ae7d2406cec24b73a7b in the private Vendora repository.
+- release-info.mjs now contains actual published GitHub metadata, not a planned release. index.html has the same verified download as a visible static link so no-JavaScript visitors can download. The module retains that release during bounded GitHub checks/failures. Later mutable replacements require signature/version/digest verification, replacing the APK/checksum/build-info, updating snapshot/static size and advancing HTML/module import cache revisions. Never replace a release with an unverified/debug APK.
+- Full Flutter suite passed 225 tests and signed release build succeeded in 18m34s. No connected handset replay was performed for camera, live payment, release Google sign-in or Play Integrity. Website source checks and publication evidence follow after deployment.
+
+## Verified release fallback and retry behavior (2026-10-10)
+
+- `/ note`: The homepage validates both live GitHub API data and `release-info.mjs` through `officialRelease` before showing a download URL. Keep `PUBLISHED_RELEASES` empty until the release owner provides verified metadata for an already-published stable APK; never fabricate a release to fill the fallback.
+- The homepage renders a valid local release immediately, preserves the available download while checking/retrying, prefers a valid live stable release, and retains the verified fallback on request failure or no qualifying live release. The 8-second request bound and manual retry give clear recovery without polling. If neither source has a release, explain the state and keep retry available.
+- Release metadata remains limited to the official `officialmrlyco/VendoraWeb` GitHub release endpoint and validated APK asset URLs. Preserve legal/privacy disclosures, no public prices/catalog reads and existing site design. This website change does not publish, commit or push a release and does not alter Android version metadata.
+- Focused tests cover release URL safety, fallback/latest precedence and the empty state. `npm test` passes 7/7 tests.
+
 ## Plain website actions without decorative link arrows (2026-10-09)
 
 - The owner clarified that upward diagonal arrows should also be eliminated. The screenshot refers to this public website. Removed decorative glyphs from the header/hero actions, six quick-link cards, website/release/support links and both account-action return links. Plain action labels, button styling, underline hover and visible keyboard focus provide the interaction cues. Removed the unused quick-link arrow CSS; do not substitute another decorative arrow or emoji.

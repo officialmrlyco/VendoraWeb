@@ -1,7 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
-import {officialRelease} from './public-model.mjs';
+import {availableRelease,officialRelease} from './public-model.mjs';
+// / note: The published snapshot and static link must describe the same downloadable APK.
+import {PUBLISHED_RELEASES} from './release-info.mjs';
 
 const release=(url,name='vendora.apk',extra={})=>({name:'Vendora',published_at:'2026-10-07T10:00:00Z',assets:[{name,browser_download_url:url,size:123}],...extra});
 test('APK links must belong to the exact official repo and be stable signed releases',()=>{
@@ -10,6 +12,29 @@ test('APK links must belong to the exact official repo and be stable signed rele
   for(const r of [release('javascript:alert(1)'),release('https://github.com/another/repo/releases/download/v1/a.apk'),release(url,'app-debug.apk'),release(url,'vendora.apk',{prerelease:true}),release(url,'vendora.apk',{draft:true})])assert.equal(officialRelease([r]),null);
   assert.equal(officialRelease([]),null);
   assert.throws(()=>officialRelease({}));
+});
+
+// / note: Cover fallback, precedence and the honest no-release state without depending on GitHub uptime.
+test('verified local release is fallback and a valid live stable release takes precedence',()=>{
+  const fallbackUrl='https://github.com/officialmrlyco/VendoraWeb/releases/download/v1.0.0/vendora.apk';
+  const latestUrl='https://github.com/officialmrlyco/VendoraWeb/releases/download/v1.0.1/vendora.apk';
+  const fallback=release(fallbackUrl,'vendora.apk',{tag_name:'v1.0.0'});
+  const latest=release(latestUrl,'vendora.apk',{tag_name:'v1.0.1'});
+  assert.equal(availableRelease([], [fallback]).url,fallbackUrl);
+  assert.equal(availableRelease([latest], [fallback]).url,latestUrl);
+  assert.equal(availableRelease([], []),null);
+  assert.equal(officialRelease([release('https://example.com/fake.apk')]),null);
+});
+
+// / note: Catch stale HTML links after a release change; downloads must also work without JavaScript.
+test('published snapshot matches the visible static APK download',async()=>{
+  const published = officialRelease(PUBLISHED_RELEASES);
+  assert.ok(published, 'The public download needs verified published metadata.');
+  const home = await readFile(new URL('index.html', import.meta.url), 'utf8');
+  const anchor = home.match(/<a\b[^>]*id="apk-download"[^>]*>/)?.[0];
+  assert.ok(anchor?.includes(`href="${published.url}"`));
+  assert.doesNotMatch(anchor, /\bhidden\b/);
+  assert.ok(home.includes(published.name));
 });
 
 test('public pages keep prices private and preserve the requested structure and legal disclosures',async()=>{
