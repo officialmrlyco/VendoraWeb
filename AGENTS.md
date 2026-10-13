@@ -1,5 +1,11 @@
 # Vendora public website
 
+## Same-version logout recovery replacement (2026-10-14)
+
+- The existing mutable `v1.0.1` release ID `409001130` keeps title `Vendora 1.0.1`, `Vendora-1.0.1.apk`, app version/code `1.0.1+1` and its permanent signing certificate. The new signed artifact is exactly 95,733,359 bytes, SHA-256 `d4f9918f858f0c26a7154e24bb275a59167e6b162e8a2d47da19d7c7019d09e4`; GitHub's uploaded digest, checksum and build-info readbacks must match before changing public website metadata.
+- This replacement carries the native phone's existing verified capabilities plus Dart cold-start MANUAL_LOGOUT recovery that keeps the shared account signed in. It needs the separately deployed authenticated handoff ACK mode response; portal grouping, safe admin deletion, and handoff endpoints were deployed to `vendora-lyco`, while the larger merchant storefront and new online-order backend still await their own rollout. Keep release notes explicit about that boundary and lack of physical phone replay.
+- Public homepage, app module import and `release-info.mjs` use the cache revision `2026101401` and direct URL suffix `build=d4f9918f858f0c26`. The previous published APK was saved in the private Vendora build baseline before replacement. Nine public-site tests passed. Verify the published GitHub Pages commit and live canonical homepage after pushing this website source; do not infer a Pages rollout from Git push alone.
+
 ## Complete-card and Quick Dial refreshed APK (2026-10-13)
 
 - MrLyco explicitly authorized replacing the existing release with current app changes and updated notes. Keep public tag v1.0.1, title Vendora 1.0.1, app version/code 1.0.1/1 and filename Vendora-1.0.1.apk. The same permanent signing certificate was verified against the saved prior public APK; package/non-debuggable/private-credential and optimized WorkManager startup-constructor checks passed before upload.
