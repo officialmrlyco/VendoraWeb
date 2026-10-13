@@ -1,5 +1,12 @@
 # Vendora public website
 
+## Complete-card and Quick Dial refreshed APK (2026-10-13)
+
+- MrLyco explicitly authorized replacing the existing release with current app changes and updated notes. Keep public tag v1.0.1, title Vendora 1.0.1, app version/code 1.0.1/1 and filename Vendora-1.0.1.apk. The same permanent signing certificate was verified against the saved prior public APK; package/non-debuggable/private-credential and optimized WorkManager startup-constructor checks passed before upload.
+- The uploaded APK is exactly 95,733,359 bytes with SHA-256 3ec289cb3a32d624034382ee86e9251fff29b50b9fd51699a9750c774da076e3. GitHub readback confirms the matching digest, all three uploaded APK/checksum/build-info assets, the same release ID 409001130 and immutable=false. App source is f79ea90bb21ed993306c5c93dd908d63016aac8d, pushed in the private Vendora repository. Full Flutter 261 and native JVM 128 tests passed; source analysis and signed APK checks passed. Signed release Gradle task completed in 695.8 seconds.
+- release-info.mjs and the static HTML download/size now use the verified uploaded replacement. The direct link includes build=3ec289cb3a32d624, and app/import revision is 2026101301. Preserve actual release publication dates rather than inventing a new tag/date for a mutable asset. Later replacements require the same published-digest verification and cache revision updates.
+- Release notes explain complete dashboard/history timestamps and facts, independent manual Quick Dial, per-mode rates, navigation/detail improvements and transfer recovery. Re-download/install over compatible existing app even if it already says 1.0.1. This replacement has no connected-handset acceptance. Matching Firebase online-order/admin/storefront source changes still need separate deployment; APK publication does not deploy payment services. Never claim those live services or physical carrier delivery are verified from this upload.
+
 ## Signed startup replacement and mutable download caching (2026-10-10)
 
 - The first signed 1.0.1 APK crashed before Flutter because R8 removed WorkManager's Room database constructor. The private app now preserves Room zero-argument constructors. Its corrected optimized APK passed constructor/signature/version/private-credential checks and three cold launches to login on the connected TECNO CL8 / Android 15. This is startup acceptance; account-specific sign-in, camera and payments are separate checks.
