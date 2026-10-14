@@ -1,5 +1,12 @@
 # Vendora public website
 
+## Phone-verified compact rates and logout replacement (2026-10-14)
+
+- The existing mutable release ID `409001130`, tag `v1.0.1`, title `Vendora 1.0.1`, filename `Vendora-1.0.1.apk` and app version/code `1.0.1+1` are retained. The permanent signed replacement from app source `99d5db927e6bd06109e904141c537196d76d8407` is 95,749,743 bytes, SHA-256 `6006c629adaeb5be9c1533b0dadb0dbd9806b3d13131bcf2c82c8c249ab5c8d6`. GitHub's uploaded digest/size, downloaded checksum/build-info bytes and release notes all match their verified local artifacts. The public snapshot and static link use cache revision `2026101402` and suffix `build=6006c629adaeb5be`; retain the original release publication date.
+- The exact APK passed Google sign-in, same-phone saved restore, fresh full logout, restart to sign-in and reopening with all 300 Runs preserved and Automation OFF on TECNO CL8. The original dashboard header now shows only enabled selling rates in compact T/P/N form. Full logout closes the shared identity after saved allowance confirmation; profile switching retains it. The source/session retry and actual nested native receipt contracts are fixed and regression-tested. Do not publish private handset screenshots, account identifiers or credentials here.
+- The matching online-order backend, required indexes, grouped admin directory and Cloudflare merchant storefront are deployed. The obsolete eTop execution/callback exports were removed while financial history remains. The prior pending-rollout statements below are historical. No real customer payment, carrier airtime delivery or two-phone transfer acceptance is claimed. Automated app verification passed 267 Flutter, 295 backend and 130 native tests; storefront passed 27 tests and unchanged admin source previously passed 39.
+- Run the nine public-site tests after snapshot changes, then verify Pages built the exact pushed content commit and that the live homepage/modules expose this digest/cache revision. Git push alone does not establish publication.
+
 ## Same-version logout recovery replacement (2026-10-14)
 
 - The existing mutable `v1.0.1` release ID `409001130` keeps title `Vendora 1.0.1`, `Vendora-1.0.1.apk`, app version/code `1.0.1+1` and its permanent signing certificate. The new signed artifact is exactly 95,733,359 bytes, SHA-256 `d4f9918f858f0c26a7154e24bb275a59167e6b162e8a2d47da19d7c7019d09e4`; GitHub's uploaded digest, checksum and build-info readbacks must match before changing public website metadata.
