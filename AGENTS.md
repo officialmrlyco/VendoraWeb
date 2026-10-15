@@ -1,3 +1,10 @@
+## Live order policy and settings-preservation APK (2026-10-15)
+
+- Existing release ID 409001130/tag v1.0.1/name Vendora-1.0.1.apk replaced with isolated committed source 9fdf8f902827fcf3e6f2932cae0ce19b9d8af0f4; package/version remain com.vendora.lyco.airtime / 1.0.1+1. SHA-256 b9f90ad86104fbe4ee363c3958fff7ae745cd2c7e6d0879d0a1bd366ee3c483d, 98,607,519 bytes, permanent signing certificate dcbc65a13a6615c6405a5e29bb80fdaf1f9885f820668d041a974109e389e380.
+- App website limits editor listens to config/online_orders min/max bounds, allows merchant settings up to the 2M platform ceiling, updates an open dialog without resetting drafts, and stops reads in background or after account changes. Independent backend partial-save and domain-readiness repairs are deployed; merchant-selected bounds are not manufactured. Provider payment limits remain separate from native split-airtime delivery.
+- Exact frozen app source passed full Flutter tests and analysis; optimized APK passed signing/package/version, ZIP, 16KiB alignment, private credential absence and Room startup constructor gates. Complete canonical public download verified before retiring audited old assets. No physical handset, new live payment or carrier acceptance is claimed for this APK.
+- Download/module/fallback snapshot revision is 2026101503 with build=b9f90ad86104fbe4; preserve original release publication date and require same-version users to re-download/install. Version name/code were not advanced. Unrelated concurrent Vendora startup and admin redesign work was excluded from this isolated build.
+
 ## Daraja editing, updater controls and successful-run billing APK (2026-10-15)
 
 - Same release ID 409001130/tag v1.0.1/name Vendora-1.0.1.apk now contains app source b218ffce2ef5e2ffa578b0659b9aa8134e8f39af. Package/version remain com.vendora.lyco.airtime / 1.0.1+1. SHA-256 1bdf806f694c7ece816f1459feaf0cbc7e3d841ed75e5ec19af4f1abb76ea930, 98,607,519 bytes, permanent certificate dcbc65a13a6615c6405a5e29bb80fdaf1f9885f820668d041a974109e389e380.
