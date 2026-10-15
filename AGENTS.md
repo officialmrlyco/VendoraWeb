@@ -1,3 +1,9 @@
+## Compact transaction-card refreshed APK (2026-10-15)
+
+- MrLyco requested a signed rebuild containing all current application edits. Source 22c428c0f6cd27c5eba17abfc4bb07b2ff1b2f27 adds the shared compact dashboard/history cards to the preceding released app. Application package/version remain com.vendora.lyco.airtime / 1.0.1+1; filename remains Vendora-1.0.1.apk on the same release ID 409001130/tag v1.0.1. SHA-256 7121a8aa0ec5b28f429ea03e6c0cfb62e6050975774adda334a6198f14a7a58b, 98,574,327 bytes, permanent certificate dcbc65a13a6615c6405a5e29bb80fdaf1f9885f820668d041a974109e389e380.
+- All 291 Flutter tests and clean full analysis passed. Exact optimized APK passed permanent signer/package/version/non-debuggable, private debug credential absence, ZIP CRC, 16 KiB alignment and retained Room constructor checks. The complete canonical public APK was downloaded and verified before retiring the three previous asset IDs. No USB handset replay, fresh live payment or carrier delivery acceptance is claimed for this exact APK.
+- Public fallback snapshot, static download and module imports now share cache revision 2026101501 and build=7121a8aa0ec5b28f. Preserve the original release publication date. Same-version users need to re-download/install the refreshed APK. Support/FAQ merchant storefront layout changes are independently deployed web assets; no version bump is needed. Later documentation commits do not change the compiled app source.
+
 # Vendora public website
 
 ## Checkout recovery and independent float-controls download (2026-10-14)
