@@ -1,3 +1,10 @@
+## Daraja editing, updater controls and successful-run billing APK (2026-10-15)
+
+- Same release ID 409001130/tag v1.0.1/name Vendora-1.0.1.apk now contains app source b218ffce2ef5e2ffa578b0659b9aa8134e8f39af. Package/version remain com.vendora.lyco.airtime / 1.0.1+1. SHA-256 1bdf806f694c7ece816f1459feaf0cbc7e3d841ed75e5ec19af4f1abb76ea930, 98,607,519 bytes, permanent certificate dcbc65a13a6615c6405a5e29bb80fdaf1f9885f820668d041a974109e389e380.
+- Includes partial Daraja edits with no-op saves, native pause/resume/cancel plus structured update controls, and run debit after confirmed carrier success with durable duplicate/crash reconciliation. Native admission still blocks without runs or active time. Website subscription expiry guards were deployed independently in backend and storefront.
+- Full Flutter analysis/tests and focused native tests passed. Exact optimized APK passed signer/package/version, non-debuggable, private debug credential absence, ZIP CRC, 16 KiB alignment and Room startup constructor checks. Complete canonical public download verified before retiring the three audited previous asset IDs. No USB handset replay or fresh live payment/carrier acceptance is claimed for this exact build.
+- Public snapshot, static download and module imports use revision 2026101502 and build=1bdf806f694c7ece. Original release date is preserved. Same-version users must re-download/install. Do not advance versionName or versionCode unless MrLyco explicitly asks.
+
 ## Compact transaction-card refreshed APK (2026-10-15)
 
 - MrLyco requested a signed rebuild containing all current application edits. Source 22c428c0f6cd27c5eba17abfc4bb07b2ff1b2f27 adds the shared compact dashboard/history cards to the preceding released app. Application package/version remain com.vendora.lyco.airtime / 1.0.1+1; filename remains Vendora-1.0.1.apk on the same release ID 409001130/tag v1.0.1. SHA-256 7121a8aa0ec5b28f429ea03e6c0cfb62e6050975774adda334a6198f14a7a58b, 98,574,327 bytes, permanent certificate dcbc65a13a6615c6405a5e29bb80fdaf1f9885f820668d041a974109e389e380.
