@@ -1,3 +1,11 @@
+## Approved four-layout appearance release (2026-10-16)
+
+- Replaced the same canonical v1.0.1 release APK, checksum and build information after full public download verification. Package/version stay com.vendora.lyco.airtime / 1.0.1+1; permanent certificate is unchanged. APK SHA-256 daffe1e98f9bf28847766b061f4bb02430852ec988c361dfe4963aff3bd05429, 98,890,571 bytes.
+- Compiled app source 6ef0c52f6b653d2b6eb8a2964297c88783571917 adds Classic, Minimal, Bold and Advanced structures, nine plain colour families with Light/Normal/Dark shades, White/Black surfaces and optional contrast-checked gradients. Test-only correction 5b28cb8 aligns an old submission fixture with the new complete theme contract. Existing merchant choices and legacy colours are preserved.
+- Worker version c242a671-4ed5-4563-bb2a-0c0cfda5d5fb and the owning get/save settings and storefront backend are deployed. No merchant theme was changed for publication. Static presentation assets cache for five minutes; catalog/checkout state stays live. No additional document listener was added.
+- APK signing, package/version, non-debuggable, private credential absence, archive CRC, 16 KiB alignment and optimized Room constructor gates passed. Full canonical public APK readback passed before retiring the audited preceding assets. No new physical handset, carrier execution or payment acceptance is claimed for this exact binary.
+- Public download snapshot and import revision are 2026101601, build=daffe1e98f9bf288. Preserve the original release publication date and tell existing users to re-download/install even if their app already says 1.0.1.
+
 ## Storefront appearance and checkout protection APK (2026-10-15)
 
 - Existing release ID 409001130/tag v1.0.1/name Vendora-1.0.1.apk replaced with newer local signed build based on d87fa814e72790e4f7d2157edf674eec5b2b072d; package/version remain com.vendora.lyco.airtime / 1.0.1+1. SHA-256 8ffeafcd788e698e2b4bc2f1951c5c163c78da2b00f25d8176def80a7dd15ae6, 98,792,267 bytes, permanent signing certificate dcbc65a13a6615c6405a5e29bb80fdaf1f9885f820668d041a974109e389e380.

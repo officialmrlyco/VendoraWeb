@@ -11,8 +11,8 @@ export const PUBLISHED_RELEASES = [
       {
         "name": "Vendora-1.0.1.apk",
         "browser_download_url": "https://github.com/officialmrlyco/VendoraWeb/releases/download/v1.0.1/Vendora-1.0.1.apk",
-        "size": 98792267,
-        "digest": "sha256:8ffeafcd788e698e2b4bc2f1951c5c163c78da2b00f25d8176def80a7dd15ae6"
+        "size": 98890571,
+        "digest": "sha256:daffe1e98f9bf28847766b061f4bb02430852ec988c361dfe4963aff3bd05429"
       }
     ]
   }
