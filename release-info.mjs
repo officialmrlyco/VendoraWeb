@@ -1,5 +1,5 @@
 // / note: Verified published APK snapshot keeps the download usable during GitHub API outages.
-// Refresh this snapshot and module revisions together whenever the same-version APK is replaced.
+// / note: The 2026-10-17 signed replacement keeps 1.0.1; its digest identifies the new binary.
 export const PUBLISHED_RELEASES = [
   {
     "name": "Vendora 1.0.1",
@@ -11,8 +11,8 @@ export const PUBLISHED_RELEASES = [
       {
         "name": "Vendora-1.0.1.apk",
         "browser_download_url": "https://github.com/officialmrlyco/VendoraWeb/releases/download/v1.0.1/Vendora-1.0.1.apk",
-        "size": 98890571,
-        "digest": "sha256:daffe1e98f9bf28847766b061f4bb02430852ec988c361dfe4963aff3bd05429"
+        "size": 98923339,
+        "digest": "sha256:9a06573a103ae43a7b1267b84fbcddfc7dc8d6736ef8a8f9ccc83996feb39172"
       }
     ]
   }
