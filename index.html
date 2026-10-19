@@ -534,15 +534,16 @@
           <img src="./assets/vendora-app-logo.png" width="54" height="54" alt="Vendora Android App logo">
           <div>
             <h3>Vendora for Android</h3>
-            <p id="release-label">Vendora 1.0.1</p>
+            <p id="release-label">Vendora 1.0.2</p>
           </div>
         </div>
-        <p id="release-detail" aria-live="polite">Official signed Android release. Version 1.0.1, build code 1.</p>
-        <!-- / note: The verified digest refreshes this same-version download, including without JavaScript. -->
-        <a id="apk-download" class="button" href="https://github.com/officialmrlyco/VendoraWeb/releases/download/v1.0.1/Vendora-1.0.1.apk?build=d1836c54d11e6fdd">Download APK</a>
+        <p id="release-detail" aria-live="polite">Official signed Android release. Version 1.0.2, build code 2.</p>
+        <!-- / note: The verified v1.0.2 digest makes the direct APK downloadable without JavaScript. -->
+        <a id="apk-download" class="button" href="https://github.com/officialmrlyco/VendoraWeb/releases/download/v1.0.2/Vendora-1.0.2.apk?build=4033b933131ec8a3">Download APK</a>
         <p id="release-size" class="quiet">94.5 MB · Android APK</p>
         <!-- / note: Identical version labels do not identify identical signed APK bytes. -->
-        <p class="quiet">Refreshed APK: download and reinstall even if your app already shows 1.0.1. Install over the existing app without clearing its data.</p>
+        <!-- / note: Keep the customer-facing release summary beside the download when JavaScript is unavailable. -->
+        <p class="quiet">Version 1.0.2 adds store-only Till payment recovery, execution counts and retry labels, Quick Dial's own rate, pasted scratch cards and copy actions. Install over the existing app without clearing its data.</p>
         <button id="retry-release" class="plain-button" type="button" hidden>Check releases again</button>
       </div>
     </section>
@@ -704,6 +705,6 @@
 
   <!-- / note: Bump this module revision when release fallback and retry behavior changes. -->
   <!-- / note: Keep HTML, module imports and the verified download snapshot on one release revision. -->
-  <script type="module" src="./app.mjs?v=2026101901"></script>
+  <script type="module" src="./app.mjs?v=2026101902"></script>
 </body>
 </html>

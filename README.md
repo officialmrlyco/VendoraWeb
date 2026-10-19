@@ -4,7 +4,8 @@ Static GitHub Pages site for `myvendora.co.ke`. Publish from `main` at `/`; `CNA
 
 The app, backend, admin console and merchant secrets remain in the private Vendora repository. This repository contains only public website assets. Run `npm test` for official release URL boundaries and the no-public-price invariant.
 
-The download section reads stable releases from this repository. Publish only a signed Vendora APK after the owner requests a release, without changing the version unless requested. The official signed release is [Vendora 1.0.1](https://myvendora.co.ke/#download), with asset `Vendora-1.0.1.apk` and build code 1. The release is mutable at the owner's request. Its verified local metadata and static download link keep it available when the GitHub API is unavailable. After any replacement, reverify the signature/version/digest and refresh the metadata, checksum and cache revision. No debug APK is published.
+<!-- / note: The public download must reflect the new stable tag and APK identity after publication. -->
+The download section reads stable releases from this repository. Publish only a signed Vendora APK after the owner requests a release, without changing the version unless requested. The official signed release is [Vendora 1.0.2](https://myvendora.co.ke/#download), with asset `Vendora-1.0.2.apk` and build code 2. Its verified local metadata and static download link keep it available when the GitHub API is unavailable. After any replacement, reverify the signature/version/digest and refresh the metadata, checksum and cache revision. No debug APK is published. See [release notes](RELEASE_NOTES_1.0.2.md) for this build.
 
 The public marketing pages do not display package numbers or prices and do not read Firestore package catalogs. Current purchase information belongs in the Vendora app. The public site reads only official stable GitHub release metadata for its download section.
 
