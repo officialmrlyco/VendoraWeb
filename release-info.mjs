@@ -1,5 +1,5 @@
 // / note: Verified published APK snapshot keeps the download usable during GitHub API outages.
-// / note: Snapshot the verified public v1.0.2 asset so download works during GitHub API outages.
+// / note: The 2026-10-24 offline Till repair keeps v1.0.2/code 2; its verified digest identifies the refreshed APK.
 export const PUBLISHED_RELEASES = [
   {
     "name": "Vendora 1.0.2",
@@ -12,7 +12,7 @@ export const PUBLISHED_RELEASES = [
         "name": "Vendora-1.0.2.apk",
         "browser_download_url": "https://github.com/officialmrlyco/VendoraWeb/releases/download/v1.0.2/Vendora-1.0.2.apk",
         "size": 99136747,
-        "digest": "sha256:4033b933131ec8a3091079621c7dedd0e15468503dd6bcb49fff95f9b66f1da3"
+        "digest": "sha256:3c7f93da3134d348a8b94067a2ba2d85258ded51158686b15d03ce033a36c87a"
       }
     ]
   }

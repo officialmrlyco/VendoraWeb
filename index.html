@@ -538,12 +538,13 @@
           </div>
         </div>
         <p id="release-detail" aria-live="polite">Official signed Android release. Version 1.0.2, build code 2.</p>
-        <!-- / note: The verified v1.0.2 digest makes the direct APK downloadable without JavaScript. -->
-        <a id="apk-download" class="button" href="https://github.com/officialmrlyco/VendoraWeb/releases/download/v1.0.2/Vendora-1.0.2.apk?build=4033b933131ec8a3">Download APK</a>
+        <!-- / note: The repaired v1.0.2 digest invalidates cached APK bytes, including without JavaScript. -->
+        <a id="apk-download" class="button" href="https://github.com/officialmrlyco/VendoraWeb/releases/download/v1.0.2/Vendora-1.0.2.apk?build=3c7f93da3134d348">Download APK</a>
         <p id="release-size" class="quiet">94.5 MB · Android APK</p>
-        <!-- / note: Identical version labels do not identify identical signed APK bytes. -->
         <!-- / note: Keep the customer-facing release summary beside the download when JavaScript is unavailable. -->
-        <p class="quiet">Version 1.0.2 adds store-only Till payment recovery, execution counts and retry labels, Quick Dial's own rate, pasted scratch cards and copy actions. Install over the existing app without clearing its data.</p>
+        <p class="quiet">Updated APK: fixes offline Till-to-Till payment recording and execution, including recovery of previously held Till receipts. Includes execution counts, retry labels, Quick Dial rates, pasted scratch cards and copy actions.</p>
+        <!-- / note: This repair retains version/code, so existing 1.0.2 users need an explicit redownload reminder. -->
+        <p class="quiet">Already on 1.0.2? Download and reinstall this refreshed APK. Install over the existing app without clearing its data.</p>
         <button id="retry-release" class="plain-button" type="button" hidden>Check releases again</button>
       </div>
     </section>
@@ -705,6 +706,6 @@
 
   <!-- / note: Bump this module revision when release fallback and retry behavior changes. -->
   <!-- / note: Keep HTML, module imports and the verified download snapshot on one release revision. -->
-  <script type="module" src="./app.mjs?v=2026101902"></script>
+  <script type="module" src="./app.mjs?v=2026102401"></script>
 </body>
 </html>

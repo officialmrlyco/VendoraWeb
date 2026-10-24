@@ -7,6 +7,9 @@ The app, backend, admin console and merchant secrets remain in the private Vendo
 <!-- / note: The public download must reflect the new stable tag and APK identity after publication. -->
 The download section reads stable releases from this repository. Publish only a signed Vendora APK after the owner requests a release, without changing the version unless requested. The official signed release is [Vendora 1.0.2](https://myvendora.co.ke/#download), with asset `Vendora-1.0.2.apk` and build code 2. Its verified local metadata and static download link keep it available when the GitHub API is unavailable. After any replacement, reverify the signature/version/digest and refresh the metadata, checksum and cache revision. No debug APK is published. See [release notes](RELEASE_NOTES_1.0.2.md) for this build.
 
+<!-- / note: Same-version refreshes require a visible reinstall reminder and verified metadata/cache keys. -->
+The refreshed 24 October 2026 APK fixes offline Till-to-Till recording, execution and held-receipt recovery. Existing 1.0.2 users should download and install it over the current app without clearing data.
+
 The public marketing pages do not display package numbers or prices and do not read Firestore package catalogs. Current purchase information belongs in the Vendora app. The public site reads only official stable GitHub release metadata for its download section.
 
 <!-- / note: Keep crawler-facing descriptions synchronized with the visible public product explanation. -->
