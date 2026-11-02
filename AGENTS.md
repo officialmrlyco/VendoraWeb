@@ -276,3 +276,9 @@
 | `assets/vendora-symbol.png` | 436,741 B | 33,157 B | 1254 x 1254 |
 | `assets/hero-bg.jpg` | 781,804 B | 150,298 B | 1376 x 768 |
 | `assets/workflow-preview.jpg` | 760,024 B | 181,937 B | 1376 x 768 |
+
+### Auth controller acceptance tests (2026-11-02)
+
+- `auth-action-controller.test.mjs` strips only static imports from the real `wdhh/auth-action.mjs`, then runs that controller in a Node VM with fake DOM nodes and Firebase SDK boundaries. The fake reset code and email are local test values; no Firebase account, one-time link, or email is contacted.
+- Coverage drives the actual eye listeners independently, real password and confirmation checks, weak/mismatched rejection before `confirmPasswordReset`, valid submit plus duplicate-event fencing, and field concealment/clearing after reset failure, success, and link retry.
+- Run `node --test auth-action-controller.test.mjs` for focused checks and `npm test` for the full public-site suite.
