@@ -4,11 +4,11 @@ Static GitHub Pages site for `myvendora.co.ke`. Publish from `main` at `/`; `CNA
 
 The app, backend, admin console and merchant secrets remain in the private Vendora repository. This repository contains only public website assets. Run `npm test` for official release URL boundaries and the no-public-price invariant.
 
-<!-- / note: The public download must reflect the new stable tag and APK identity after publication. -->
-The download section reads stable releases from this repository. Publish only a signed Vendora APK after the owner requests a release, without changing the version unless requested. The official signed release is [Vendora 1.0.2](https://myvendora.co.ke/#download), with asset `Vendora-1.0.2.apk` and build code 2. Its verified local metadata and static download link keep it available when the GitHub API is unavailable. After any replacement, reverify the signature/version/digest and refresh the metadata, checksum and cache revision. No debug APK is published. See [release notes](RELEASE_NOTES_1.0.2.md) for this build.
+<!-- / note: The static verified snapshot and live release metadata must identify the same signed APK. -->
+The download section reads stable releases from this repository. Publish only a signed Vendora APK after the owner requests a release, without changing the version unless requested. The official signed release is [Vendora 1.0.3](https://myvendora.co.ke/#download), with asset `Vendora-1.0.3.apk` and build code 3. Its verified local metadata and static download link keep it available when the GitHub API is unavailable. The APK is 99,415,531 bytes with SHA-256 `fa97752e018097eba0ca54c6d3477efd3fedae339178ef3bc2c9632251392d32`. After any replacement, reverify the signature/version/digest and refresh the metadata, checksum and cache revision. No debug APK is published. See [release notes](RELEASE_NOTES_1.0.3.md) for this build.
 
-<!-- / note: Same-version refreshes require a visible reinstall reminder and verified metadata/cache keys. -->
-The refreshed 24 October 2026 APK adds independent scratch-card receiving modes/rates, Home's active delivery identity, and separate Airtime / Scratch cards Quick Dial forms. A manual scratch run sends exactly one selected-value card and records no customer payment. It retains the offline Till-to-Till repair. Existing 1.0.2 users should download and install it over the current app without clearing data.
+<!-- / note: Explain the source changes and retain the no-clear-data upgrade instruction. -->
+Vendora 1.0.3 adds saved carrier response history in transaction details, faster website delivery updates, and durable cooldowns for unchanged rejected result uploads. It retains the separate scratch-card workflows, protected inventory and offline Till recovery. Existing users should install over the current app without clearing app data.
 
 The public marketing pages do not display package numbers or prices and do not read Firestore package catalogs. Current purchase information belongs in the Vendora app. The public site reads only official stable GitHub release metadata for its download section.
 

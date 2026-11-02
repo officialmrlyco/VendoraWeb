@@ -1,18 +1,18 @@
 // / note: Verified published APK snapshot keeps the download usable during GitHub API outages.
-// / note: The scratch-card repair keeps v1.0.2/code 2; this verified digest identifies the refreshed signed APK.
+// / note: The 1.0.3 artifact snapshot keeps direct downloads available before GitHub metadata loads.
 export const PUBLISHED_RELEASES = [
   {
-    "name": "Vendora 1.0.2",
-    "tag_name": "v1.0.2",
-    "published_at": "2026-10-19T16:47:27Z",
+    "name": "Vendora 1.0.3",
+    "tag_name": "v1.0.3",
+    "verified_at": "2026-11-02",
     "draft": false,
     "prerelease": false,
     "assets": [
       {
-        "name": "Vendora-1.0.2.apk",
-        "browser_download_url": "https://github.com/officialmrlyco/VendoraWeb/releases/download/v1.0.2/Vendora-1.0.2.apk",
-        "size": 99185899,
-        "digest": "sha256:35178a341790d6f042b473494da2bba34c331e6157ca6b1010af5c2b5c2a28b1"
+        "name": "Vendora-1.0.3.apk",
+        "browser_download_url": "https://github.com/officialmrlyco/VendoraWeb/releases/download/v1.0.3/Vendora-1.0.3.apk",
+        "size": 99415531,
+        "digest": "sha256:fa97752e018097eba0ca54c6d3477efd3fedae339178ef3bc2c9632251392d32"
       }
     ]
   }

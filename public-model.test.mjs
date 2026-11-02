@@ -38,13 +38,34 @@ test('verified local release is fallback and a valid live stable release takes p
 
 // / note: Catch stale HTML links after a release change; downloads must also work without JavaScript.
 test('published snapshot matches the visible static APK download',async()=>{
-  const published = officialRelease(PUBLISHED_RELEASES);
+  const published = availableRelease([], PUBLISHED_RELEASES);
   assert.ok(published, 'The public download needs verified published metadata.');
   const home = await readFile(new URL('index.html', import.meta.url), 'utf8');
   const anchor = home.match(/<a\b[^>]*id="apk-download"[^>]*>/)?.[0];
   assert.ok(anchor?.includes(`href="${published.url}"`));
   assert.doesNotMatch(anchor, /\bhidden\b/);
   assert.ok(home.includes(published.name));
+});
+
+// / note: The artifact snapshot is verified locally; only GitHub supplies its actual publication date.
+test('verified v1.0.3 fallback uses the signed artifact digest without inventing a publication date',()=>{
+  const published=availableRelease([],PUBLISHED_RELEASES);
+  assert.equal(published.tag,'v1.0.3');
+  assert.equal(published.date,null);
+  assert.equal(published.size,99415531);
+  assert.match(published.url,/Vendora-1\.0\.3\.apk\?build=fa97752e018097eb$/);
+});
+
+// / note: Keep release notes aligned with verified artifact metadata and cautious acceptance claims.
+test('1.0.3 release notes cover response history and cautious website delivery outcomes',async()=>{
+  const notes=await readFile(new URL('RELEASE_NOTES_1.0.3.md',import.meta.url),'utf8');
+  assert.match(notes,/Vendora 1\.0\.3 \(build 3\)/);
+  assert.match(notes,/carrier prompts and per-run results across retries/);
+  assert.match(notes,/payment confirmation alone does not claim delivery/);
+  assert.match(notes,/durable cooldown/);
+  assert.match(notes,/99,415,531 bytes/);
+  assert.match(notes,/fa97752e018097eba0ca54c6d3477efd3fedae339178ef3bc2c9632251392d32/);
+  assert.match(notes,/No physical handset, live payment or carrier delivery acceptance is claimed/);
 });
 
 test('public pages keep prices private and preserve the requested structure and legal disclosures',async()=>{

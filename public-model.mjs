@@ -2,10 +2,11 @@
 export const RELEASES_URL = 'https://api.github.com/repos/officialmrlyco/VendoraWeb/releases?per_page=10';
 
 // / note: Validate all release sources through one boundary before a URL reaches the download button.
-export function officialRelease(releases) {
+export function officialRelease(releases, {allowVerifiedSnapshot = false} = {}) {
   if (!Array.isArray(releases)) throw new Error('Release information is invalid.');
   // Ignore previews, drafts and debug builds; untrusted release URLs never enter href.
-  const releasesSorted = releases.filter(r => !r.draft && !r.prerelease && Number.isFinite(Date.parse(r.published_at))).sort((a,b)=>Date.parse(b.published_at)-Date.parse(a.published_at));
+  const releaseDate = r => Number.isFinite(Date.parse(r.published_at)) ? Date.parse(r.published_at) : allowVerifiedSnapshot && Number.isFinite(Date.parse(r.verified_at)) ? Date.parse(r.verified_at) : NaN;
+  const releasesSorted = releases.filter(r => !r.draft && !r.prerelease && Number.isFinite(releaseDate(r))).sort((a,b)=>releaseDate(b)-releaseDate(a));
   for (const release of releasesSorted) {
     const asset = (Array.isArray(release.assets) ? release.assets : []).find(a => {
       if (typeof a.name !== 'string' || !/\.apk$/i.test(a.name) || /debug/i.test(a.name)) return false;
@@ -17,7 +18,7 @@ export function officialRelease(releases) {
       const url = new URL(asset.browser_download_url);
       const digest = /^sha256:([a-f0-9]{64})$/i.exec(String(asset.digest || ''));
       if (digest) url.searchParams.set('build', digest[1].slice(0,16).toLowerCase());
-      return {name:String(release.name || release.tag_name).slice(0,120),tag:String(release.tag_name || '').slice(0,60),date:release.published_at,url:url.href,size:Number(asset.size)||0};
+      return {name:String(release.name || release.tag_name).slice(0,120),tag:String(release.tag_name || '').slice(0,60),date:release.published_at || null,url:url.href,size:Number(asset.size)||0};
     }
   }
   return null;
@@ -26,5 +27,5 @@ export function officialRelease(releases) {
 // / note: Stable live metadata wins; a verified published snapshot keeps downloads available on API failure.
 export function availableRelease(liveReleases, publishedReleases) {
   const live = officialRelease(liveReleases);
-  return live || officialRelease(publishedReleases);
+  return live || officialRelease(publishedReleases, {allowVerifiedSnapshot:true});
 }
