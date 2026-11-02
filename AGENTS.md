@@ -263,3 +263,16 @@
 - New-password and confirmation reveal buttons are independent, `type="button"`, and expose current state through `aria-pressed` plus an updated accessible label. The shared helper is `auth-password-visibility.mjs`.
 - Auth pending/error/success transitions and link retries conceal both fields. Submission is guarded against duplicate events and requires a live in-memory reset code. Preserve the existing 6–20 character uppercase/lowercase/digit policy and matching confirmation, Firebase reset flow, and no-secret-logging boundary.
 - Coverage: `npm test` includes helper state tests and the existing password-policy regressions. This change is source-only; no auth account or one-time link was used.
+
+
+## Website image payload optimization (2026-11-02)
+
+- Optimized only the existing public logo and photography assets. Transparent PNG logos retain their full pixel dimensions and paths using indexed 256-color palettes; the two JPEGs retain dimensions and paths using progressive quality 84. No auth HTML/JS/CSS or branding was changed.
+- Before/after bytes and dimensions:
+
+| Asset | Before | After | Dimensions |
+|---|---:|---:|---:|
+| `assets/vendora-app-logo.png` | 641,971 B | 34,395 B | 1254 x 1254 |
+| `assets/vendora-symbol.png` | 436,741 B | 33,157 B | 1254 x 1254 |
+| `assets/hero-bg.jpg` | 781,804 B | 150,298 B | 1376 x 768 |
+| `assets/workflow-preview.jpg` | 760,024 B | 181,937 B | 1376 x 768 |
