@@ -15,6 +15,7 @@ import {
   parseAuthActionRequest,
   passwordsMatch,
 } from '../auth-action-model.mjs';
+import { setPasswordVisibility } from '../auth-password-visibility.mjs';
 
 // Firebase browser identifiers are public project configuration, not secrets.
 const firebaseApp = initializeApp({
@@ -36,6 +37,24 @@ const retry = byId('retry-action');
 const helpTitle = byId('help-title');
 const helpSteps = byId('help-steps');
 let request = null;
+let passwordSubmissionPending = false;
+
+// / note: All auth outcomes and fresh link checks return both fields to concealed mode.
+function concealPasswords() {
+  for (const button of document.querySelectorAll('[data-password-toggle]')) {
+    const input = byId(button.dataset.passwordToggle);
+    if (input) setPasswordVisibility(input, button, false);
+  }
+}
+
+// Each eye is independent, keyboard-operable and cannot trigger form submission.
+for (const button of document.querySelectorAll('[data-password-toggle]')) {
+  button.addEventListener('click', () => {
+    const input = byId(button.dataset.passwordToggle);
+    if (!input || formRegion.hidden || passwordSubmissionPending) return;
+    setPasswordVisibility(input, button, input.type === 'password');
+  });
+}
 
 // Recovery steps are selected from fixed copy so links and account data never become markup.
 function renderAccountHelp(completed) {
@@ -61,6 +80,7 @@ function renderAccountHelp(completed) {
 
 // UI updates use textContent only so action payloads and SDK data never become markup.
 function setStatus(state, heading, detail, { showHelp = false, showRetry = false } = {}) {
+  if (state !== 'ready') concealPasswords();
   status.dataset.state = state;
   status.setAttribute('aria-busy', state === 'pending' ? 'true' : 'false');
   title.textContent = heading;
@@ -138,6 +158,7 @@ async function runCurrentAction() {
 // Password submission enforces Vendora's policy and leaves final validation to Firebase.
 byId('password-form').addEventListener('submit', async (event) => {
   event.preventDefault();
+  if (passwordSubmissionPending || request?.mode !== 'resetPassword' || !request.code) return;
   const password = byId('new-password').value;
   const confirmation = byId('confirm-password').value;
   byId('new-password').setAttribute('aria-invalid', String(!isValidVendoraPassword(password)));
@@ -153,6 +174,7 @@ byId('password-form').addEventListener('submit', async (event) => {
   }
 
   const submit = byId('submit-password');
+  passwordSubmissionPending = true;
   submit.disabled = true;
   setStatus('pending', 'Updating your password', 'Please wait while Firebase secures your account.');
   try {
@@ -167,12 +189,14 @@ byId('password-form').addEventListener('submit', async (event) => {
     showFailure(error);
   } finally {
     // A failed or successful response always restores an actionable button state.
+    passwordSubmissionPending = false;
     submit.disabled = false;
   }
 });
 
 // Retrying revalidates the same link; it never sends a new email or follows a continuation URL.
 retry.addEventListener('click', () => {
+  concealPasswords();
   if (request?.mode === 'resetPassword') preparePasswordReset().catch(showFailure);
   else runCurrentAction();
 });

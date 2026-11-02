@@ -17,6 +17,13 @@
 .auth-account{color:#b7c7e2;font-size:13px;overflow-wrap:anywhere;margin:0 0 17px}
 .auth-form label{display:block;margin:15px 0 7px;font-size:12px;font-weight:650;color:#d9e1ef}
 .auth-form input{width:100%;height:48px;padding:0 14px;border:1px solid #35435a;border-radius:11px;background:#090d15;color:var(--text);outline:none}
+/* / note: The reveal control stays inside the input edge without changing field sizing. */
+.auth-password-field{position:relative}
+.auth-form .auth-password-field input{padding-right:54px}
+.auth-password-toggle{position:absolute;top:50%;right:7px;display:grid;place-items:center;width:36px;height:36px;transform:translateY(-50%);border:0;border-radius:9px;background:transparent;color:#a9b7ce;cursor:pointer}
+.auth-password-toggle:hover{background:#1d2a40;color:#e5edfb}
+.auth-password-toggle:focus-visible{outline:2px solid #6a9dff;outline-offset:2px}
+.auth-password-toggle svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.7}
 .auth-form input:focus{border-color:#6a9dff;box-shadow:0 0 0 3px #3478ff2a}
 .auth-form input[aria-invalid=true]{border-color:#ff827c}
 .auth-hint{margin:10px 0 18px;color:var(--muted);font-size:11px;line-height:1.6}
