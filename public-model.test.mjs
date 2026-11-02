@@ -47,11 +47,11 @@ test('published snapshot matches the visible static APK download',async()=>{
   assert.ok(home.includes(published.name));
 });
 
-// / note: The artifact snapshot is verified locally; only GitHub supplies its actual publication date.
-test('verified v1.0.3 fallback uses the signed artifact digest without inventing a publication date',()=>{
+// / note: The fallback snapshot records the actual GitHub publication time and signed artifact digest.
+test('verified v1.0.3 fallback matches the public release metadata',()=>{
   const published=availableRelease([],PUBLISHED_RELEASES);
   assert.equal(published.tag,'v1.0.3');
-  assert.equal(published.date,null);
+  assert.equal(published.date,'2026-11-02T10:43:25Z');
   assert.equal(published.size,99415531);
   assert.match(published.url,/Vendora-1\.0\.3\.apk\?build=fa97752e018097eb$/);
 });

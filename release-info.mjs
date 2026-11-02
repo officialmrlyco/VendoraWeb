@@ -4,7 +4,7 @@ export const PUBLISHED_RELEASES = [
   {
     "name": "Vendora 1.0.3",
     "tag_name": "v1.0.3",
-    "verified_at": "2026-11-02",
+    "published_at": "2026-11-02T10:43:25Z",
     "draft": false,
     "prerelease": false,
     "assets": [

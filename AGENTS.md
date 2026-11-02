@@ -2,8 +2,8 @@
 
 - Prepared `RELEASE_NOTES_1.0.3.md` from the 2 November source audit: durable local transaction response history, website delivery status waits, cooldown for unchanged rejected result uploads, and current scratch-card inventory protections. Preserve the distinction between payment and delivery, and do not imply physical carrier acceptance.
 - Website source was clean on `main` tracking `origin/main` (`https://github.com/officialmrlyco/VendoraWeb.git`) at preparation start. The existing v1.0.2 fallback snapshot is verified metadata for its existing 99,185,899-byte APK; it must not be reused as v1.0.3 metadata.
-- Verified signed 1.0.3/code 3 metadata: package `com.vendora.lyco.airtime`, 99,415,531 bytes, SHA-256 `fa97752e018097eba0ca54c6d3477efd3fedae339178ef3bc2c9632251392d32`, permanent certificate unchanged. Release snapshot, direct download, cache key, app module revision, homepage and README now use this identity. The snapshot records only the verification date; it leaves publication time to live GitHub metadata.
-- Website suite passed 11/11 and `git diff --check` is clean. Signed artifact gates were reported by the Vendora build task; no handset, payment, carrier or website publication acceptance is implied here. This task commits scoped website files only and waits for owner confirmation before push. Keep v1.0.2 assets intact.
+- Verified stable/latest GitHub release: ID `431227688`, tag `v1.0.3`, published `2026-11-02T10:43:25Z`. The signed 1.0.3/code 3 APK package is `com.vendora.lyco.airtime`, 99,415,531 bytes, SHA-256 `fa97752e018097eba0ca54c6d3477efd3fedae339178ef3bc2c9632251392d32`, with the established permanent certificate. The local snapshot, direct download, cache key, app module revision, homepage and README use this identity; GitHub reports the same asset size and digest.
+- Website suite passed 11/11 and `git diff --check` is clean. The eight-range complete public APK readback is in progress; do not push until it passes and the owner confirms. No handset, payment or carrier acceptance is implied. Keep v1.0.2 assets intact.
 
 ## Direct-Firestore subscription APK replacement (2026-10-17)
 
